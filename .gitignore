@@ -44,4 +44,4 @@ worker/dist/
 api/node_modules/
 worker/node_modules/
 
-README.md
+TASKS.md
