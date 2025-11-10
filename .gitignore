@@ -15,8 +15,6 @@ dist/
 # Docker
 .docker/
 .dockerignore
-Dockerfile.*
-docker-compose.override.yml
 
 # Environment variables
 .env

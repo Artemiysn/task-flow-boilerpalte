@@ -1,0 +1,22 @@
+# Use official Node.js runtime as base image
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY tsconfig.json ./
+
+# Install dependencies
+RUN npm install --package-lock-only
+RUN npm ci
+
+# Устанавливаем nodemon глобально для разработки
+RUN npm install -g nodemon
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "run", "dev"]

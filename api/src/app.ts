@@ -92,6 +92,10 @@ async function initializeConnections() {
 initializeConnections();
 
 app.get('/health', (req, res) => {
+  res.json({ status: 'OK 1', service: 'API' });
+});
+
+app.get('/test', (req, res) => {
   res.json({ status: 'OK', service: 'API' });
 });
 

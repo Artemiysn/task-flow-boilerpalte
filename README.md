@@ -3,7 +3,6 @@ init
 .env example:
 
 ```
-
 # PostgreSQL
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres123
@@ -20,5 +19,14 @@ RABBITMQ_DEFAULT_USER=taskflow-1
 RABBITMQ_DEFAULT_PASS=taskflow-1
 RABBITMQ_HOST=rabbitmq
 RABBITMQ_PORT=5672
+```
+
+Для запуска
 
 ```
+make up
+# или
+docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build
+````
+
+localhost:3000 - открыт (это сервис API)
