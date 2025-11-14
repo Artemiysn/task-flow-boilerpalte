@@ -4,8 +4,9 @@ init
 
 ```
 # PostgreSQL
+DATABASE_URL=postgres://postgres:postgres_12344@localhost:5432/taskflow
 POSTGRES_USER=postgres
-POSTGRES_PASSWORD=postgres123
+POSTGRES_PASSWORD=postgres_12344
 POSTGRES_DB=taskflow
 POSTGRES_HOST=postgres
 POSTGRES_PORT=5432
@@ -30,3 +31,9 @@ docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build
 ````
 
 localhost:3000 - открыт (это сервис API)
+
+Для миграций нужно ясно указать переменную DATABASE_URL
+
+в linux: 
+
+export DATABASE_URL="postgresql://postgres:postgres@localhost:5432/myapp"

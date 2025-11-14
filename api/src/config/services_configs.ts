@@ -1,5 +1,6 @@
 export const config = {
   postgres: {
+    connectionString: process.env.DATABASE_URL,
     host: process.env.POSTGRES_HOST,
     port: parseInt(process.env.POSTGRES_PORT || '5432'),
     user: process.env.POSTGRES_USER,
