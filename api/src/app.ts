@@ -3,7 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import dotenv from "dotenv";
 import { config } from "./config/services_configs";
-import { initializeConnections } from "./connections/index";
+import { initializeConnections, shutdownConnections } from "./connections/index";
 
 dotenv.config();
 
@@ -28,4 +28,15 @@ app.get("/test", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`API сервер запущен на порту ${PORT}`);
+});
+
+// Graceful shutdown when userc click ctrc + c in terminal
+process.on('SIGINT', async () => {
+  await shutdownConnections();
+  process.exit(0);
+});
+
+process.on('SIGTERM', async () => {
+  await shutdownConnections();
+  process.exit(0);
 });
