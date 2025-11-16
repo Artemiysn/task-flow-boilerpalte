@@ -20,6 +20,10 @@ RABBITMQ_DEFAULT_USER=taskflow-1
 RABBITMQ_DEFAULT_PASS=taskflow-1
 RABBITMQ_HOST=rabbitmq
 RABBITMQ_PORT=5672
+
+JWT_SECRET=w/ERD8KZtpeH
+JWT_EXPIRES_IN=24h
+
 ```
 
 Для запуска
@@ -32,8 +36,14 @@ docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build
 
 localhost:3000 - открыт (это сервис API)
 
+Notes
+======
+
 Для миграций нужно ясно указать переменную DATABASE_URL
 
 в linux: 
 
 export DATABASE_URL="postgresql://postgres:postgres@localhost:5432/myapp"
+
+
+пакеты нужно устанавливать в 2-ух местах пока что: локально и в контейнере (подумать как исправить)

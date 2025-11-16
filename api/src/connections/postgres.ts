@@ -7,7 +7,7 @@ export const connectToPostgres = async (): Promise<Client> => {
   if (postgresClient) return postgresClient;
 
   postgresClient = new Client(config.postgres);
-  
+
   // Обработка ошибок подключения
   postgresClient.on('error', (err) => {
     console.error('❌ PostgreSQL client error:', err);

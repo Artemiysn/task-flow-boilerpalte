@@ -9,7 +9,6 @@ COPY package*.json ./
 COPY tsconfig.json ./
 
 # Install dependencies
-RUN npm install --package-lock-only
 RUN npm ci
 
 # Copy source code

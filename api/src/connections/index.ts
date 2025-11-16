@@ -9,12 +9,14 @@ async function waitForConnection(
   delay = 5000
 ): Promise<void> {
   let retries = 0;
-  while (retries < maxRetries) {
+  while (retries < maxRetries ) {
     try {
       await connectFn();
       console.log(`✅ Успешно подключено к ${name}`);
       return;
     } catch (error) {
+      console.log('ERROR');
+      console.log(error);
       retries++;
       console.log(`⏳ Попытка подключения к ${name} (${retries}/${maxRetries})...`);
       await new Promise(resolve => setTimeout(resolve, delay));

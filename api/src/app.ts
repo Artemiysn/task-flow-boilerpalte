@@ -2,8 +2,8 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import dotenv from "dotenv";
-import { config } from "./config/services_configs";
 import { initializeConnections, shutdownConnections } from "./connections/index";
+import routes from './routes'; // Импорт центрального роутера
 
 dotenv.config();
 
@@ -17,6 +17,9 @@ app.use(express.json());
 
 // Инициализация подключений при запуске
 initializeConnections();
+
+// Подключаем маршруты
+app.use('/api', routes);
 
 app.get("/health", (req, res) => {
   res.json({ status: "OK 1", service: "API" });
