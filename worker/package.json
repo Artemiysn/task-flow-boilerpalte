@@ -9,10 +9,10 @@
     "start": "node dist/index.js",
     "dev": "nodemon --watch src --ext ts --exec tsx watch src/app.ts",
     "test": "jest",
-    "migrate:create": "node-pg-migrate create",
-    "migrate:up": "node-pg-migrate up --env=dev",
-    "migrate:down": "node-pg-migrate down --env=dev",
-    "migrate:up:prod": "node-pg-migrate up --env=prod"
+    "migrate:create": "npx dotenv-cli -e ./../.env node-pg-migrate create",
+    "migrate:up": "npx dotenv-cli -e ./../.env node-pg-migrate up --env=dev",
+    "migrate:down": "npx dotenv-cli -e ./../.env node-pg-migrate down --env=dev",
+    "migrate:up:prod": "npx dotenv-cli -e ./../.env node-pg-migrate up --env=prod"
   },
   "dependencies": {
     "amqplib": "0.10",
@@ -36,6 +36,7 @@
     "@types/node": "^24.10.0",
     "@types/pg": "^8.15.6",
     "@types/redis": "^4.0.11",
+    "dotenv-cli": "^11.0.0",
     "jest": "^30.2.0",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",

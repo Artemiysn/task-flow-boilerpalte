@@ -36,6 +36,8 @@ docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build
 
 localhost:3000 - открыт (это сервис API)
 
+дальше поднять миграции
+
 Notes
 ======
 
@@ -44,6 +46,8 @@ Notes
 в linux: 
 
 export DATABASE_URL="postgresql://postgres:postgres@localhost:5432/myapp"
+
+ЛИБО указать явно путь к .env файлу (как в package.json)
 
 
 пакеты нужно устанавливать в 2-ух местах пока что: локально и в контейнере (подумать как исправить)
